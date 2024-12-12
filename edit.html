@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактирование данных</title>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f8ff;
+            margin: 0;
+        }
+        .edit-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+        .edit-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .edit-container input[type="text"] {
+            width: 92%;
+            padding: 10px;
+            margin: 10px 0; 
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .edit-container button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #0097a7;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="edit-container">
+        <h2>Редактирование данных</h2>
+        <form action="edit.php" method="POST">
+            <input type="text" name="id" placeholder="Введите ID" required>
+            <button type="submit">Изменить данные</button>
+        </form>
+
+        <h2>Добавить данные</h2>
+        <form action="edit.php" method="POST">
+            <button type="submit">Добавить данные</button>
+        </form>
+
+        <button type="button" onclick="window.location.href='login.html'">Назад</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('dataForm').onsubmit = function(event) {
+            event.preventDefault(); 
+            const formData = new FormData(this);
+            fetch('edit.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('result').innerHTML = data; 
+            })
+            .catch(error => console.error('Ошибка:', error));
+        };
+    </script>
+</body>
+</html>

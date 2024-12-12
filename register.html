@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f8ff;
+            margin: 0;
+        }
+
+        .reg-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+
+        .reg-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .reg-container input[type="text"],
+        .reg-container input[type="password"],
+        .reg-container select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 16px;
+            background-color: #ffffff;
+        }
+
+        .reg-container button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #0097a7;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="reg-container">
+        <h2>Регистрация</h2>
+        <form action="register.php" method="POST">
+            <input type="text" name="login" placeholder="Логин" required>
+            <input type="password" name="password" placeholder="Пароль" required>
+            
+            
+            
+            <button type="submit">Сохранить</button>
+            <button type="button"  onclick="window.location.href='login.html'">Назад</button>
+
+
+           
+        </form>
+    </div>
+</body>
+</html>
